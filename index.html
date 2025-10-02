@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EditPro - Video Editing Products & Software</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            overflow-x: hidden;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        body.dark-mode {
+            background: #0a0a0a;
+            color: #ffffff;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s;
+        }
+
+        body.dark-mode nav {
+            background: rgba(15, 15, 15, 0.95);
+            box-shadow: 0 2px 20px rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #667eea, #f093fb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        body.dark-mode .nav-links a {
+            color: #ffffff;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #667eea;
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 2px solid #667eea;
+            color: #667eea;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .theme-toggle:hover {
+            background: #667eea;
+            color: #ffffff;
+            transform: scale(1.05);
+        }
+
+        /* Pages */
+        .page {
+            display: none;
+            min-height: 100vh;
+            padding-top: 80px;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Home Page */
+        .hero {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        body.dark-mode .hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+        }
+
+        body.dark-mode .hero::before {
+            background: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+            color: #ffffff;
+        }
+
+        .hero .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.2s both;
+            color: #ffffff;
+        }
+
+        .hero .motto {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #f093fb;
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Features */
+        /* Features */
+        .features {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #f8f9fa;
+            transition: background 0.3s;
+        }
+
+        body.dark-mode .features {
+            background: #0f0f0f;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        body.dark-mode .feature-card {
+            background: #1a1a1a;
+            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.05);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
+        }
+
+        body.dark-mode .feature-card:hover {
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* About Page */
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            background: #f8f9fa;
+            transition: background 0.3s;
+        }
+
+        body.dark-mode .about-content {
+            background: #0f0f0f;
+        }
+
+        .about-card {
+            background: #ffffff;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 2rem;
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+
+        body.dark-mode .about-card {
+            background: #1a1a1a;
+            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.05);
+        }
+
+        .about-card h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #f093fb;
+        }
+
+        .about-card p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        /* Store Page */
+        .store-content {
+            padding: 4rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            background: #f8f9fa;
+            transition: background 0.3s;
+        }
+
+        body.dark-mode .store-content {
+            background: #0f0f0f;
+        }
+
+        .store-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .store-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .product-card {
+            background: #ffffff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        body.dark-mode .product-card {
+            background: #1a1a1a;
+            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.05);
+        }
+
+        .product-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(102, 126, 234, 0.3);
+        }
+
+        body.dark-mode .product-card:hover {
+            box-shadow: 0 25px 50px rgba(102, 126, 234, 0.4);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: productShine 3s infinite;
+        }
+
+        @keyframes productShine {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .product-info {
+            padding: 2rem;
+        }
+
+        .product-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-info .category {
+            color: #f093fb;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-info p {
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .product-price {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #f093fb;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 3rem 2rem 2rem;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            transition: background 0.3s, border-color 0.3s;
+        }
+
+        body.dark-mode footer {
+            background: rgba(15, 15, 15, 0.95);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #667eea, #f093fb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .footer-section p {
+            opacity: 0.8;
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: inherit;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s, color 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: #667eea;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .social-icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            opacity: 0.7;
+        }
+
+        body.dark-mode .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.2rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo" onclick="showPage('home')">EditPro</div>
+        <ul class="nav-links">
+            <li><a href="#" onclick="showPage('home'); return false;">Home</a></li>
+            <li><a href="#" onclick="showPage('about'); return false;">About</a></li>
+            <li><a href="#" onclick="showPage('store'); return false;">Store</a></li>
+            <li><button class="theme-toggle" onclick="toggleTheme()">🌓</button></li>
+        </ul>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <div class="hero">
+            <div class="hero-content">
+                <h1>EditPro</h1>
+                <p class="tagline">Your Ultimate Video Editing Marketplace</p>
+                <p class="motto">Helping You Find and Use the Right Video Editing Software for YOU!</p>
+                <button class="btn" onclick="showPage('store')">Explore Products</button>
+            </div>
+        </div>
+
+        <div class="features">
+            <h2>Why Choose EditPro?</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎥</div>
+                    <h3>Professional Tools</h3>
+                    <p>Access industry-standard video editing software and plugins tailored to your workflow.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Instant Delivery</h3>
+                    <p>Get your software keys and downloads immediately after purchase. No waiting.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💡</div>
+                    <h3>Expert Guidance</h3>
+                    <p>We help you find the perfect editing solution that matches your needs and skill level.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Page -->
+    <div id="about" class="page">
+        <div class="about-content">
+            <div class="about-card">
+                <h2>About EditPro</h2>
+                <p>We're passionate about empowering video creators with the right tools for their craft. Whether you're a beginner taking your first steps into video editing or a professional looking for advanced software, we're here to help.</p>
+                <p>Our mission is simple: <strong>Helping You Find and Use the Right Video Editing Software for YOU!</strong></p>
+                <p>We carefully curate our selection of products to ensure quality, reliability, and value. Every software package, plugin, and tool in our store has been tested and vetted by our team of video editing professionals.</p>
+            </div>
+
+            <div class="about-card">
+                <h2>Our Story</h2>
+                <p>Founded by video editors for video editors, EditPro was born from the frustration of navigating the overwhelming world of video editing software. We understand that choosing the right tools can make or break your creative process.</p>
+                <p>Today, we serve thousands of creators worldwide, helping them find the perfect software match for their unique needs and budget.</p>
+            </div>
+
+            <div class="about-card">
+                <h2>What We Offer</h2>
+                <p>✨ Curated selection of professional video editing software</p>
+                <p>🎨 Powerful plugins and effects packages</p>
+                <p>📚 Educational resources and tutorials</p>
+                <p>💬 Expert support and consultation</p>
+                <p>🔄 License management and updates</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Store Page -->
+    <div id="store" class="page">
+        <div class="store-content">
+            <div class="store-header">
+                <h1>Featured Products</h1>
+                <p style="font-size: 1.2rem; opacity: 0.9;">Professional tools for every creator</p>
+            </div>
+
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">🎬</div>
+                    <div class="product-info">
+                        <div class="category">VIDEO EDITING SOFTWARE</div>
+                        <h3>Pro Edit Suite X</h3>
+                        <p>Industry-leading video editing software with advanced color grading, motion graphics, and multi-cam editing capabilities.</p>
+                        <div class="product-price">$299</div>
+                        <button class="btn">Learn More</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">✨</div>
+                    <div class="product-info">
+                        <div class="category">EFFECTS & PLUGINS</div>
+                        <h3>Cinema Effects Pack</h3>
+                        <p>200+ professional effects and transitions. Includes film grain, light leaks, cinematic LUTs, and more.</p>
+                        <div class="product-price">$149</div>
+                        <button class="btn">Learn More</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">🎨</div>
+                    <div class="product-info">
+                        <div class="category">COLOR GRADING</div>
+                        <h3>ColorMaster Pro</h3>
+                        <p>Professional color grading suite with HDR support, scopes, and Hollywood-grade LUT library.</p>
+                        <div class="product-price">$199</div>
+                        <button class="btn">Learn More</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">🎵</div>
+                    <div class="product-info">
+                        <div class="category">AUDIO EDITING</div>
+                        <h3>SoundFlow Studio</h3>
+                        <p>Complete audio post-production solution with noise reduction, EQ, compression, and sound design tools.</p>
+                        <div class="product-price">$179</div>
+                        <button class="btn">Learn More</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">🚀</div>
+                    <div class="product-info">
+                        <div class="category">MOTION GRAPHICS</div>
+                        <h3>MotionCraft Bundle</h3>
+                        <p>Complete motion graphics toolkit with templates, animated titles, and 3D integration capabilities.</p>
+                        <div class="product-price">$249</div>
+                        <button class="btn">Learn More</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">📱</div>
+                    <div class="product-info">
+                        <div class="category">BEGINNER FRIENDLY</div>
+                        <h3>QuickEdit Starter</h3>
+                        <p>Perfect for beginners! Easy-to-use interface with all essential tools. Great for social media content and vlogs.</p>
+                        <div class="product-price">$79</div>
+                        <button class="btn">Learn More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        }
+
+        // Load saved theme preference
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+            }
+        });
+
+        // Add hover effect to product cards
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-15px) scale(1.02)';
+            });
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
