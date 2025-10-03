@@ -1,0 +1,78 @@
+---
+layout: base.njk
+title: 404 - Page Not Found
+permalink: /404.html
+---
+
+<style>
+.error-container {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+body.dark-mode .error-container {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+.error-container h1 {
+    font-size: 8rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.error-container h2 {
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+.error-container p {
+    font-size: 1.2rem;
+    color: #ffffff;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+    max-width: 600px;
+}
+
+.error-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.error-icon {
+    font-size: 5rem;
+    margin-bottom: 2rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+</style>
+
+<div class="error-container">
+    <div class="error-icon">🎬</div>
+    <h1>404</h1>
+    <h2>Scene Not Found</h2>
+    <p>Oops! Looks like this page got left on the cutting room floor. The content you're looking for doesn't exist or may have been moved.</p>
+    <div class="error-actions">
+        <button class="btn" onclick="location.href='/'">Go Home</button>
+        <button class="btn" onclick="location.href='/pages/store/'">Browse Store</button>
+        <button class="btn" onclick="history.back()">Go Back</button>
+    </div>
+</div>

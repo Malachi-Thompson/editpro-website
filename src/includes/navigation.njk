@@ -1,0 +1,9 @@
+<nav>
+    <div class="logo" onclick="location.href='/'">{{ site.title }}</div>
+    <ul class="nav-links">
+        <li><a href="/" {% if page.url == "/" %}class="active"{% endif %}>Home</a></li>
+        <li><a href="/pages/about/" {% if '/about/' in page.url %}class="active"{% endif %}>About</a></li>
+        <li><a href="/pages/store/" {% if '/store/' in page.url %}class="active"{% endif %}>Store</a></li>
+        <li><button class="theme-toggle" onclick="toggleTheme()">🌓</button></li>
+    </ul>
+</nav>

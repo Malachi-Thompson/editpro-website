@@ -1,0 +1,28 @@
+{
+  "name": "editpro-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": ".eleventy.js",
+  "scripts": {
+    "start": "eleventy --serve --port=30000",
+    "build": "eleventy",
+    "dev": "eleventy --serve --watch",
+    "clean": "rm -rf _site"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Malachi-Thompson/editpro-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Malachi-Thompson/editpro-website/issues"
+  },
+  "homepage": "https://github.com/Malachi-Thompson/editpro-website#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "@11ty/eleventy-dev-server": "^2.0.8",
+    "browser-sync": "^3.0.4"
+  }
+}

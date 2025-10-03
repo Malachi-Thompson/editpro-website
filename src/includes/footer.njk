@@ -1,0 +1,47 @@
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>{{ site.title }}</h3>
+            <p>Your trusted source for professional video editing software and tools.</p>
+            <p><strong>{{ site.motto }}</strong></p>
+            <div class="social-icons">
+                {% for social in site.social %}
+                <a href="{{ social.url }}" class="social-icon" aria-label="{{ social.name }}">{{ social.icon }}</a>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/pages/about/">About Us</a></li>
+                <li><a href="/pages/store/">Store</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Tutorials</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Support</h3>
+            <ul class="footer-links">
+                <li><a href="#">Help Center</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">License Management</a></li>
+                <li><a href="#">Returns & Refunds</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Contact</h3>
+            <p>📧 {{ site.contact.email }}</p>
+            <p>📞 {{ site.contact.phone }}</p>
+            <p>📍 {{ site.contact.address | safe }}</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; {{ "now" | date: "%Y" }} {{ site.title }}. All rights reserved. | <a href="#" style="text-decoration: none;">Privacy Policy</a> | <a href="#" style="text-decoration: none;">Terms of Service</a></p>
+    </div>
+</footer>
