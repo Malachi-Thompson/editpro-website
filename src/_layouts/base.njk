@@ -3,9 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ description or site.description }}">
     <title>{{ title }} - {{ site.title }}</title>
+    
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="/shared/styles/global.css">
+    <link rel="stylesheet" href="/shared/styles/navigation.css">
+    <link rel="stylesheet" href="/shared/styles/footer.css">
+    
+    <!-- Page-Specific Styles -->
+    {% if pageStylesheet %}
+    <link rel="stylesheet" href="{{ pageStylesheet }}">
+    {% endif %}
 </head>
 <body>
-    {{ content | safe }}
+    {% include "navigation.njk" %}
+
+    <div class="page">
+        {{ content | safe }}
+    </div>
+
+    {% include "footer.njk" %}
+
+    <!-- Global Scripts -->
+    <script src="/shared/scripts/main.js"></script>
+    
+    <!-- Page-Specific Scripts -->
+    {% if pageScript %}
+    <script src="{{ pageScript }}"></script>
+    {% endif %}
 </body>
 </html>

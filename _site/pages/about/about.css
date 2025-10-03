@@ -1,0 +1,37 @@
+.about-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  background: #f8f9fa;
+  transition: background 0.3s;
+}
+
+body.dark-mode .about-content {
+  background: #0f0f0f;
+}
+
+.about-card {
+  background: #ffffff;
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+body.dark-mode .about-card {
+  background: #1a1a1a;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.05);
+}
+
+.about-card h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #f093fb;
+}
+
+.about-card p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
