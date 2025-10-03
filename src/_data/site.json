@@ -4,14 +4,12 @@
   "motto": "Helping You Find and Use the Right Video Editing Software for YOU!",
   "url": "https://editpro.pages.dev",
   "contact": {
-    "email": "support@editpro.com",
-    "phone": "1-800-EDITPRO",
+    "email": "malakyproductions@gmail.com",
+    "phone": "(555) 555-5555",
     "address": "123 Creator Street<br>Denver, CO 80202"
   },
   "social": [
-    { "name": "Facebook", "icon": "📘", "url": "#" },
-    { "name": "Twitter", "icon": "🐦", "url": "#" },
-    { "name": "Instagram", "icon": "📷", "url": "#" },
-    { "name": "YouTube", "icon": "▶️", "url": "#" }
+    { "name": "Discord", "icon": "💬", "url": "#" },
+    { "name": "YouTube", "icon": "⏯️", "url": "www.youtube.com/@MalakyStudios" }
   ]
 }
