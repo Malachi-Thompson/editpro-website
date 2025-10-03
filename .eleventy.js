@@ -6,19 +6,9 @@ module.exports = function(eleventyConfig) {
   // Watch CSS and JS files for changes
   eleventyConfig.addWatchTarget("src/shared/styles/");
   eleventyConfig.addWatchTarget("src/shared/scripts/");
-  eleventyConfig.addWatchTarget("src/pages/**/*.css");
-  eleventyConfig.addWatchTarget("src/pages/**/*.js");
 
-  // BrowserSync settings
-  eleventyConfig.setBrowserSyncConfig({
-    files: ['_site/**/*'],
-    open: true,
-    browser: "default",
-    notify: false,
-    ui: false,
-    ghostMode: false,
-    port: 8080
-  });
+  // Add current year filter
+  eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
 
   return {
     dir: {
@@ -28,7 +18,7 @@ module.exports = function(eleventyConfig) {
       layouts: "_layouts",
       data: "_data"
     },
-    templateFormats: ["html", "md", "njk"],
+    templateFormats: ["html", "md", "njk", "liquid"],
     htmlTemplateEngine: "njk",
     markdownTemplateEngine: "njk"
   };
