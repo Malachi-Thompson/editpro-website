@@ -4,7 +4,7 @@
   "description": "",
   "main": ".eleventy.js",
   "scripts": {
-    "start": "eleventy --serve --port=30000",
+    "start": "eleventy --serve --watch",
     "build": "eleventy",
     "dev": "eleventy --serve --watch",
     "clean": "rm -rf _site"
