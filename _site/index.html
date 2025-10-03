@@ -13,23 +13,57 @@
     
     <!-- Page-Specific Styles -->
     
+    <link rel="stylesheet" href="/pages/home/home.css">
+    
 </head>
 <body>
     <nav>
     <div class="logo" onclick="location.href='/'">EditPro</div>
     <ul class="nav-links">
         <li><a href="/" class="active">Home</a></li>
-        <li><a href="/pages/about/" >About</a></li>
-        <li><a href="/pages/store/" >Store</a></li>
+        <li><a href="/about/" >About</a></li>
+        <li><a href="/store/" >Store</a></li>
         <li><button class="theme-toggle" onclick="toggleTheme()">🌓</button></li>
     </ul>
 </nav>
 
-    <div class="page">
-        <h1>It Works!</h1>
-<p>Eleventy is running!</p>
-
+    <main class="page">
+        <!-- Debug output -->
+        <div style="display:none;">
+            Content exists: 0
+            Title: Home
+        </div>
+        <!-- THIS IS THE KEY PART - Make sure content renders here -->
+        <div class="hero">
+    <div class="hero-content">
+        <h1>EditPro</h1>
+        <p class="tagline">Your Ultimate Video Editing Marketplace</p>
+        <p class="motto">Helping You Find and Use the Right Video Editing Software for YOU!</p>
+        <button class="btn" onclick="location.href='/pages/store/'">Explore Products</button>
     </div>
+</div>
+
+<div class="features">
+    <h2>Why Choose EditPro?</h2>
+    <div class="feature-grid">
+        <div class="feature-card">
+            <div class="feature-icon">🎥</div>
+            <h3>Professional Tools</h3>
+            <p>Access industry-standard video editing software and plugins tailored to your workflow.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Instant Delivery</h3>
+            <p>Get your software keys and downloads immediately after purchase. No waiting.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">💡</div>
+            <h3>Expert Guidance</h3>
+            <p>We help you find the perfect editing solution that matches your needs and skill level.</p>
+        </div>
+    </div>
+</div>
+    </main>
 
     <footer>
     <div class="footer-content">
@@ -56,19 +90,15 @@
                 <li><a href="/">Home</a></li>
                 <li><a href="/pages/about/">About Us</a></li>
                 <li><a href="/pages/store/">Store</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Tutorials</a></li>
             </ul>
         </div>
 
         <div class="footer-section">
-            <h3>Support</h3>
+            <h3>Quick Links</h3>
             <ul class="footer-links">
-                <li><a href="#">Help Center</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">FAQ</a></li>
-                <li><a href="#">License Management</a></li>
-                <li><a href="#">Returns & Refunds</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about/">About Us</a></li>
+                <li><a href="/store/">Store</a></li>
             </ul>
         </div>
 
@@ -88,6 +118,8 @@
     <script src="/shared/scripts/main.js"></script>
     
     <!-- Page-Specific Scripts -->
+    
+    <script src="/pages/home/home.js"></script>
     
 </body>
 </html>

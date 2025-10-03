@@ -1,6 +1,38 @@
 ﻿---
 layout: base.njk
 title: Home
+pageStylesheet: /pages/home/home.css
+pageScript: /pages/home/home.js
+permalink: /index.html
+eleventyExcludeFromCollections: true
 ---
-<h1>It Works!</h1>
-<p>Eleventy is running!</p>
+
+<div class="hero">
+    <div class="hero-content">
+        <h1>{{ site.title }}</h1>
+        <p class="tagline">{{ site.description }}</p>
+        <p class="motto">{{ site.motto }}</p>
+        <button class="btn" onclick="location.href='/pages/store/'">Explore Products</button>
+    </div>
+</div>
+
+<div class="features">
+    <h2>Why Choose EditPro?</h2>
+    <div class="feature-grid">
+        <div class="feature-card">
+            <div class="feature-icon">🎥</div>
+            <h3>Professional Tools</h3>
+            <p>Access industry-standard video editing software and plugins tailored to your workflow.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Instant Delivery</h3>
+            <p>Get your software keys and downloads immediately after purchase. No waiting.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">💡</div>
+            <h3>Expert Guidance</h3>
+            <p>We help you find the perfect editing solution that matches your needs and skill level.</p>
+        </div>
+    </div>
+</div>

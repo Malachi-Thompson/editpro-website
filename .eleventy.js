@@ -2,13 +2,24 @@ module.exports = function(eleventyConfig) {
   // Copy assets to output
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/shared");
+  eleventyConfig.addPassthroughCopy("src/pages/**/*.css");
+  eleventyConfig.addPassthroughCopy("src/pages/**/*.js");
 
   // Watch CSS and JS files for changes
   eleventyConfig.addWatchTarget("src/shared/styles/");
   eleventyConfig.addWatchTarget("src/shared/scripts/");
-
+  eleventyConfig.addWatchTarget("src/pages/**/*.css");
+  eleventyConfig.addWatchTarget("src/pages/**/*.js");
+  
   // Add current year filter
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
+
+  // Set template formats
+  eleventyConfig.setTemplateFormats([
+    "md",
+    "njk",
+    "html"
+  ]);
 
   return {
     dir: {
@@ -20,6 +31,7 @@ module.exports = function(eleventyConfig) {
     },
     templateFormats: ["html", "md", "njk"],
     htmlTemplateEngine: "njk",
-    markdownTemplateEngine: "njk"
+    markdownTemplateEngine: "njk",
+    dataTemplateEngine: "njk"
   };
 };

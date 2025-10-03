@@ -19,9 +19,10 @@
 <body>
     {% include "navigation.njk" %}
 
-    <div class="page">
+    <main class="page">
+        <!-- THIS IS THE KEY PART - Make sure content renders here -->
         {{ content | safe }}
-    </div>
+    </main>
 
     {% include "footer.njk" %}
 

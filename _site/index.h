@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Your Ultimate Video Editing Marketplace">
-    <title>404 - Page Not Found - EditPro</title>
+    <title>Home - EditPro</title>
     
     <!-- Global Styles -->
     <link rel="stylesheet" href="/shared/styles/global.css">
@@ -13,98 +13,23 @@
     
     <!-- Page-Specific Styles -->
     
+    <link rel="stylesheet" href="/pages/home/home.css">
+    
 </head>
 <body>
     <nav>
     <div class="logo" onclick="location.href='/'">EditPro</div>
     <ul class="nav-links">
         <li><a href="/" >Home</a></li>
-        <li><a href="/about/" >About</a></li>
-        <li><a href="/store/" >Store</a></li>
+        <li><a href="/pages/about/" >About</a></li>
+        <li><a href="/pages/store/" >Store</a></li>
         <li><button class="theme-toggle" onclick="toggleTheme()">🌓</button></li>
     </ul>
 </nav>
 
     <main class="page">
-        <!-- Debug output -->
-        <div style="display:none;">
-            Content exists: 0
-            Title: 404 - Page Not Found
-        </div>
         <!-- THIS IS THE KEY PART - Make sure content renders here -->
         
-<style>
-.error-container {
-    min-height: 80vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 2rem;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-}
-
-body.dark-mode .error-container {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-}
-
-.error-container h1 {
-    font-size: 8rem;
-    color: #ffffff;
-    margin-bottom: 1rem;
-    animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-}
-
-.error-container h2 {
-    font-size: 2.5rem;
-    color: #ffffff;
-    margin-bottom: 1rem;
-}
-
-.error-container p {
-    font-size: 1.2rem;
-    color: #ffffff;
-    opacity: 0.9;
-    margin-bottom: 2rem;
-    max-width: 600px;
-}
-
-.error-actions {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.error-icon {
-    font-size: 5rem;
-    margin-bottom: 2rem;
-    animation: float 3s ease-in-out infinite;
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-}
-</style>
-
-<div class="error-container">
-    <div class="error-icon">🎬</div>
-    <h1>404</h1>
-    <h2>Scene Not Found</h2>
-    <p>Oops! Looks like this page got left on the cutting room floor. The content you're looking for doesn't exist or may have been moved.</p>
-    <div class="error-actions">
-        <button class="btn" onclick="location.href='/'">Go Home</button>
-        <button class="btn" onclick="location.href='/pages/store/'">Browse Store</button>
-        <button class="btn" onclick="history.back()">Go Back</button>
-    </div>
-</div>
     </main>
 
     <footer>
@@ -132,15 +57,19 @@ body.dark-mode .error-container {
                 <li><a href="/">Home</a></li>
                 <li><a href="/pages/about/">About Us</a></li>
                 <li><a href="/pages/store/">Store</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Tutorials</a></li>
             </ul>
         </div>
 
         <div class="footer-section">
-            <h3>Quick Links</h3>
+            <h3>Support</h3>
             <ul class="footer-links">
-                <li><a href="/">Home</a></li>
-                <li><a href="/about/">About Us</a></li>
-                <li><a href="/store/">Store</a></li>
+                <li><a href="#">Help Center</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">License Management</a></li>
+                <li><a href="#">Returns & Refunds</a></li>
             </ul>
         </div>
 
@@ -160,6 +89,8 @@ body.dark-mode .error-container {
     <script src="/shared/scripts/main.js"></script>
     
     <!-- Page-Specific Scripts -->
+    
+    <script src="/pages/home/home.js"></script>
     
 </body>
 </html>
