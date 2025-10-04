@@ -1,38 +1,31 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Your Ultimate Video Editing Marketplace">
-    <title>Home - EditPro</title>
-    
-    <!-- Global Styles -->
-    <link rel="stylesheet" href="/shared/styles/global.css">
-    <link rel="stylesheet" href="/shared/styles/navigation.css">
-    <link rel="stylesheet" href="/shared/styles/footer.css">
-    
-    <!-- Page-Specific Styles -->
-    
-    <link rel="stylesheet" href="/pages/home/home.css">
-    
+    <meta http-equiv="refresh" content="0; url=/coming-soon/">
+    <title>Redirecting...</title>
 </head>
 <body>
-    <nav>
-    <div class="logo" onclick="location.href='/'">EditPro</div>
-    <ul class="nav-links">
-        <li><a href="/" class="active">Home</a></li>
-        <li><a href="/pages/about/" >About</a></li>
-        <li><a href="/pages/store/" >Store</a></li>
-        <li><button class="theme-toggle" onclick="toggleTheme()">🌓</button></li>
-    </ul>
-</nav>
+    <p>Redirecting...</p>
+    <script>
+        window.location.href = '/coming-soon/';
+    </script>
+</body>
+</html>
 
-    <main class="page">
-        <!-- THIS IS THE KEY PART - Make sure content renders here -->
-        
+---
+layout: base.njk
+title: Home
+pageStylesheet: /pages/home/home.css
+pageScript: /pages/home/home.js
+permalink: /index.html
+eleventyExcludeFromCollections: true
+---
+--- IGNORE 
 <div class="hero">
     <div class="hero-content">
-        <h1>EditPro</h1>
+        <h1>RezSolution Studios</h1>
         <p class="tagline">Your Ultimate Video Editing Marketplace</p>
         <p class="motto">Helping You Find and Use the Right Video Editing Software for YOU!</p>
         <button class="btn" onclick="location.href='/pages/store/'">Explore Products</button>
@@ -59,63 +52,4 @@
         </div>
     </div>
 </div>
-    </main>
-
-    <footer>
-    <div class="footer-content">
-        <div class="footer-section">
-            <h3>EditPro</h3>
-            <p>Your trusted source for professional video editing software and tools.</p>
-            <p><strong>Helping You Find and Use the Right Video Editing Software for YOU!</strong></p>
-            <div class="social-icons">
-                
-                <a href="#" class="social-icon" aria-label="Facebook">📘</a>
-                
-                <a href="#" class="social-icon" aria-label="Twitter">🐦</a>
-                
-                <a href="#" class="social-icon" aria-label="Instagram">📷</a>
-                
-                <a href="#" class="social-icon" aria-label="YouTube">▶️</a>
-                
-            </div>
-        </div>
-
-        <div class="footer-section">
-            <h3>Quick Links</h3>
-            <ul class="footer-links">
-                <li><a href="/">Home</a></li>
-                <li><a href="/pages/about/">About Us</a></li>
-                <li><a href="/pages/store/">Store</a></li>
-            </ul>
-        </div>
-
-        <div class="footer-section">
-            <h3>Quick Links</h3>
-            <ul class="footer-links">
-                <li><a href="/">Home</a></li>
-                <li><a href="/about/">About Us</a></li>
-                <li><a href="/store/">Store</a></li>
-            </ul>
-        </div>
-
-        <div class="footer-section">
-            <h3>Contact</h3>
-            <p>📧 support@editpro.com</p>
-            <p>📞 1-800-EDITPRO</p>
-            <p>📍 123 Creator Street<br>Denver, CO 80202</p>
-        </div>
-    </div>
-
-    <div class="footer-bottom">
-        <p>&copy; 2025 EditPro. All rights reserved. | <a href="#" style="text-decoration: none;">Privacy Policy</a> | <a href="#" style="text-decoration: none;">Terms of Service</a></p>
-</footer>
-
-    <!-- Global Scripts -->
-    <script src="/shared/scripts/main.js"></script>
-    
-    <!-- Page-Specific Scripts -->
-    
-    <script src="/pages/home/home.js"></script>
-    
-</body>
-</html>
+---
